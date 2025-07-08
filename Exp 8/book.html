@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book Appointment - HealthCare Plus</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom right, #e0f7fa, #80deea);
+      color: #333;
+    }
+    header {
+      background-color: #00796b;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    nav a {
+      margin-left: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+      color: #00796b;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, select, textarea, button {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background-color: #00796b;
+      color: white;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #004d40;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HealthCare Plus</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="book.html">Book Appointment</a>
+      <a href="view_appointments.php">View Appointments</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h2>Book Your Appointment</h2>
+    <form action="save_appointment.php" method="POST">
+      <label for="name">Patient Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="department">Department</label>
+      <select id="department" name="department" required>
+        <option value="">Select Department</option>
+        <option value="General Medicine">General Medicine</option>
+        <option value="Pediatrics">Pediatrics</option>
+        <option value="Orthopedics">Orthopedics</option>
+        <option value="Cardiology">Cardiology</option>
+        <option value="Dermatology">Dermatology</option>
+      </select>
+
+      <label for="doctor">Doctor</label>
+      <input type="text" id="doctor" name="doctor" required placeholder="e.g. Dr. Smith">
+
+      <label for="date">Date</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Time</label>
+      <input type="time" id="time" name="time" required>
+
+      <label for="symptoms">Symptoms / Notes</label>
+      <textarea id="symptoms" name="symptoms" rows="3"></textarea>
+
+      <button type="submit">Book Appointment</button>
+    </for

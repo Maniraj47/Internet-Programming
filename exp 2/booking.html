@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Room Booking Form</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5e4cc;
+    }
+
+    .logout-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 8px 16px;
+      background-color: #795548;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .logout-btn:hover {
+      background-color: #5d4037;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 100px auto;
+      background-color: #ffffff;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #5d4037;
+      margin-bottom: 20px;
+    }
+
+    input, select, button {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    button[type="submit"] {
+      background-color: #795548;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #5d4037;
+    }
+
+    p.success-message {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <button class="logout-btn" onclick="logout()">Logout</button>
+
+  <div class="container">
+    <h2>Room Booking Form</h2>
+    <form id="bookingForm" onsubmit="bookRoom(event)">
+      <input type="text" id="fullname" placeholder="Full Name" required>
+      <input type="date" id="checkin" required>
+      <input type="date" id="checkout" required>
+      <select id="roomtype" required>
+        <option value="">Select Room Type</option>
+        <option value="Single">Single</option>
+        <option value="Double">Double</option>
+        <option value="Suite">Suite</option>
+      </select>
+      <button type="submit">Book Now</button>
+    </form>
+    <p id="message" class="success-message"></p>
+  </div>
+
+  <script>
+    // Simulate login check
+    if (!sessionStorage.getItem("currentUser")) {
+      sessionStorage.setItem("currentUser", "Guest"); 
+    }
+
+    // Date validation
+    const today = new Date().toISOString().split("T")[0];
+    document.getElementById("checkin").setAttribute("min", today);
+
+    document.getElementById("checkin").addEventListener("change", function () {
+      document.getElementById("checkout").setAttribute("min", this.value);
+    });
+
+    function bookRoom(event) {
+      event.preventDefault();
+
+      const fullname = document.getElementById("fullname").value.trim();
+      const checkin = document.getElementById("checkin").value;
+      const checkout = document.getElementById("checkout").value;
+      const roomtype = document.getElementById("roomtype").value;
+      const roomNumber = Math.floor(100 + Math.random() * 900);
+
+      // Save booking info
+      localStorage.setItem("fullname", fullname);
+      localStorage.setItem("checkin", checkin);
+      localStorage.setItem("checkout", checkout);
+      localStorage.setItem("roomtype", roomtype);
+      localStorage.setItem("roomNumber", roomNumber);
+
+      // Show success message
+      document.getElementById("message").textContent = `Booking confirmed! Room No: ${roomNumber}`;
+      
+      // Optional: clear the form
+      document.getElementById("bookingForm").reset();
+    }
+
+    function logout() {
+      sessionStorage.clear();
+      alert("Logged out!");
+      // Optionally, redirect or clear form
+      document.getElementById("bookingForm").reset();
+      document.getElementById("message").textContent = "";
+    }
+  </script>
+</body>
+</html>

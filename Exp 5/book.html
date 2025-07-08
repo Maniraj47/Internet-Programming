@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book Flight - SkyReserve</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom right, #f8bbd0, #e1bee7);
+      color: #333;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(255, 192, 203, 0.8);
+      color: #fff;
+    }
+    header h1 {
+      font-size: 28px;
+    }
+    nav a {
+      margin-left: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+      color: #ec407a;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, select, button {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background-color: #f06292;
+      color: white;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #ec407a;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SkyReserve</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="book_flight.html">Book Flight</a>
+      <a href="view_bookings.php">Your Bookings</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h2>Book Your Flight</h2>
+    <form action="save_booking.php" method="POST">
+      <label for="passenger">Passenger Name</label>
+      <input type="text" id="passenger" name="passenger" required>
+      <label for="from">From</label>
+      <input type="text" id="from" name="from" required>
+      <label for="to">To</label>
+      <input type="text" id="to" name="to" required>
+      <label for="date">Date</label>
+      <input type="date" id="date" name="date" required>
+      <button type="submit">Confirm Booking</button>
+    </form>
+  </div>
+</body>
+</html>

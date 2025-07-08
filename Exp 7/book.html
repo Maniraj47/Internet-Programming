@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book Appointment - Beauty Bliss</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom right, #ffe0f0, #ffc0cb);
+      color: #333;
+    }
+    header {
+      background-color: #d81b60;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    nav a {
+      margin-left: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+      color: #d81b60;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, select, textarea, button {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background-color: #d81b60;
+      color: white;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #c2185b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Beauty Bliss</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="book.html">Book Appointment</a>
+      <a href="view_appointments.php">View Appointments</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h2>Book Your Appointment</h2>
+    <form action="save_appointment.php" method="POST">
+      <label for="name">Customer Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="service">Service</label>
+      <select id="service" name="service" required>
+        <option value="">Select Service</option>
+        <option value="Haircut">Haircut</option>
+        <option value="Facial">Facial</option>
+        <option value="Manicure">Manicure</option>
+        <option value=

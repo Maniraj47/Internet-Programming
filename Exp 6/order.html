@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Order Cake - Cake Delight</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom right, #fce4ec, #f8bbd0);
+      color: #333;
+    }
+    header {
+      background-color: #e91e63;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 28px;
+    }
+    nav a {
+      margin-left: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+      color: #e91e63;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, select, textarea, button {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #d81b60;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Cake Delight</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="order.html">Order Cake</a>
+      <a href="view_orders.php">View Orders</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h2>Order Your Cake</h2>
+    <form action="save_order.php" method="POST">
+      <label for="name">Customer Name</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="flavor">Cake Flavor</label>
+      <select id="flavor" name="flavor" required>
+        <option value="">Select Flavor</option>
+        <option value="Chocolate">Chocolate</option>
+        <option value="Vanilla">Vanilla</option>
+        <option value="Red Velvet">Red Velvet</option>
+        <option value="Strawberry">Strawberry</option>
+      </select>
+      
+      <label for="size">Size</label>
+      <select id="size" name="size" required>
+        <option value="">Select Size</option>
+        <option value="Small">Small</option>
+        <option value="Medium">Medium</option>
+        <option value="Large">Large</option>
+      </select>
+      
+      <label for="message">Message on Cake</label>
+      <input type="text" id="message" name="message">
+      
+      <label for="date">Delivery Date</label>
+      <input type="date" id="date" name="date" required>
+      
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
+</body>
+</html>
+

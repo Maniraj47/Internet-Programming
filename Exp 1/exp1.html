@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Library Management</title>
+  <style>
+    body {
+      background-color: #f3e5f5;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      border-radius: 10px;
+      margin-top: 30px;
+      margin-bottom: 80px; /* leave space for footer */
+    }
+
+    h2, h3 {
+      color: #4a148c;
+    }
+
+    img {
+      width: 200px;
+      margin: 20px 0;
+    }
+
+    form {
+      margin-bottom: 30px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #7b1fa2;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #4a148c;
+    }
+
+    footer {
+      background-color: #4a148c;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .bg {
+        background: url("https://media.gettyimages.com/id/1428719730/video/library-books-and-bookshelf-for-reading-learning-or-knowledge-background-public-access.jpg?s=640x640&k=20&c=ley35smAfLuy3JfBNycGmjTi8JtcNyKcbQ0Dtc7CObs=") no-repeat center center fixed;
+        background-size: cover;
+}
+
+  </style>
+  <script>
+    function validateForm() {
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let password = document.getElementById("password").value;
+
+      if (!name || !email || !password) {
+        alert("All fields are required!");
+        return false;
+      }
+
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</head>
+<body class="bg">
+  <div class="container">
+    <h2>Library Management System</h2>
+    <img src="https://i0.wp.com/www.thecity.nyc/wp-content/uploads/2024/07/070824_jefferson_market_library_2-scaled.jpg?w=2560&ssl=1" alt="Library Icon">
+
+    <h3>Register</h3>
+    <form method="POST" action="register.php" onsubmit="return validateForm()">
+      <input type="text" name="name" id="name" placeholder="Name"><br>
+      <input type="email" name="email" id="email" placeholder="Email"><br>
+      <input type="password" name="password" id="password" placeholder="Password"><br>
+      <input type="submit" value="Register">
+    </form>
+
+    <h3>Login</h3>
+    <form method="POST" action="login.php">
+      <input type="email" name="email" placeholder="Email"><br>
+      <input type="password" name="password" placeholder="Password"><br>
+      <input type="submit" value="Login">
+    </form>
+
+    <h3>Contact Us</h3>
+    <p>Email: library@example.com<br>
+    Phone: +91-1234567890</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Library Management</p>
+  </footer>
+</body>
+</html>

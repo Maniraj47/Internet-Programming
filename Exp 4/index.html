@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dino Express</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background-color: #263238;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background-color: #757575;
+      color: white;
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 50px 30px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .hero-text h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+    }
+
+    .hero-button {
+      flex: 0 0 auto;
+      margin-top: 20px;
+    }
+
+    .hero-button button {
+      background-color: #fb8c00;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .hero-button button:hover {
+      background-color: #ef6c00;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-button {
+        margin-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Dino Express</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="book_ticket.html">Book Ticket</a>
+    <a href="view_bookings.php">View Bookings</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-text">
+    <h2>Book Your Train Journey Easily</h2>
+    <p>Fast, Simple & Reliable Train Booking</p>
+  </div>
+  <div class="hero-button">
+    <a href="book_ticket.html">
+      <button>Book Now</button>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

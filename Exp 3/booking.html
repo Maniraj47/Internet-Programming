@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SwiftBus - Search Buses</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    header {
+      background-color: #d32f2f;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 400px;
+      background-color: white;
+      margin: 50px auto;
+      padding: 30px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: left;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    select, input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #d32f2f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #b71c1c;
+    }
+
+    p.success {
+      color: green;
+      font-weight: bold;
+      margin-top: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    SwiftBus
+  </header>
+
+  <div class="container">
+    <h2>Search Buses</h2>
+    <form id="searchForm" onsubmit="searchBuses(event)">
+      <label for="from">From:</label>
+      <select id="from" required>
+        <option value="">Select source</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Hyderabad">Hyderabad</option>
+      </select>
+
+      <label for="to">To:</label>
+      <select id="to" required>
+        <option value="">Select destination</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Hyderabad">Hyderabad</option>
+      </select>
+
+      <label for="date">Date:</label>
+      <input type="date" id="date" required>
+
+      <button type="submit">Search Buses</button>
+    </form>
+    <p id="result" class="success"></p>
+  </div>
+
+  <script>
+    const today = new Date().toISOString().split("T")[0];
+    document.getElementById("date").setAttribute("min", today);
+
+    function searchBuses(event) {
+      event.preventDefault();
+
+      const from = document.getElementById("from").value;
+      const to = document.getElementById("to").value;
+      const date = document.getElementById("date").value;
+
+      if (from === to) {
+        alert("Source and destination cannot be the same!");
+        return;
+      }
+
+      localStorage.setItem("from", from);
+      localStorage.setItem("to", to);
+      localStorage.setItem("date", date);
+
+      document.getElementById("result").textContent = `Buses found from ${from} to ${to} on ${date}!`;
+      document.getElementById("searchForm").reset();
+    }
+  </script>
+</body>
+</html>
